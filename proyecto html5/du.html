@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+        <style>
+            img {
+                transition: transform 0.5s;
+            }
+    
+            img:hover {
+                transform: rotate(360deg);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Bienvenido a mi sitio jimena rivera </h1>
+        <img src="img.jpeg" alt="Una imagen">
+    </body>
+    </html>
+
+    <audio controls>
+		<source src="ps2_start_up.mp3" type="audio/mp3">
+		<source src="ps2_start_up.mp3" type="audio/ogg">
+		
+	</audio>
+
+
+	<meta charset="UTF-8">
+	<title>Lista de tareas</title>
+    <title>proyecto 1</title>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        
+        
+
+
+	<style>
+
+        
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #4b9b8d;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			color: rgb(47, 24, 24);
+		}
+		form {
+			width: 50%;
+			margin: 50px auto;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+		}
+		input[type="text"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			width: 50%;
+			margin: 50px auto;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+		}
+		li {
+			padding: 10px;
+			border-bottom: 1px solid #ccc;
+		}
+		li:last-child {	margin-left: 10px;
+			border-bottom: none;
+		}
+		.delete { 	margin-left: 10px;
+			color: red;
+			cursor: pointer;
+		}
+	
+		.update {	margin-left: 10px;
+			color: blue;
+			cursor: pointer;
+		}
+     
+	</style>
+</head>
+<body>
+	<h1>Lista de tareas</h1>
+	<form>
+		<label for="new-task">Agregar tarea:</label>
+		<input type="text" id="new-task" placeholder="Escribe una tarea...">
+		<input type="submit" value="Agregar">
+	</form>
+	<ul id="task-list">
+
+        </ul>
+        <script>
+            const form = document.querySelector('form');
+            const input = document.querySelector('input');
+            const ul = document.querySelector('ul');
+            let taskToEdit = null;
+            
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const text = input.value.trim();
+                if (text !== '') {
+                    if (taskToEdit === null) {
+                        const li = document.createElement('li');
+                        li.innerHTML = text + '<span class="update">Editar</span><span class="delete">Eliminar</span>';
+                        ul.appendChild(li);
+                    } else {
+                        taskToEdit.innerHTML = text + '<span class="update">Editar</span><span class="delete">Eliminar</span>';
+                        taskToEdit = null;
+                    }
+                    input.value = '';
+                }
+            });
+            
+            ul.addEventListener('click', function(event) {
+                
+                if (event.target.classList.contains('delete')) {
+                    const li = event.target.parentElement;
+                    ul.removeChild(li); 
+
+                } else if (event.target.classList.contains('update')) {
+                    const li = event.target.parentElement;
+                    input.value = li.innerText.trim();
+                    taskToEdit =
+        li;
+        }
+        });
+        </script>
+        </body>
+        </html>
+    
